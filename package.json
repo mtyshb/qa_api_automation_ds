@@ -1,0 +1,21 @@
+{
+  "name": "qa_api_automation_ds",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "api_test": "echo 'Eksekusi API Test'",
+    "report": "mocha api_test.js --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^10.4.0",
+    "mochawesome": "^7.1.3",
+    "supertest": "^7.0.0"
+  }
+}

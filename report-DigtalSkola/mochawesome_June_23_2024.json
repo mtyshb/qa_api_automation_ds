@@ -1,0 +1,260 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-22T18:04:47.930Z",
+    "end": "2024-06-22T18:04:50.763Z",
+    "duration": 2833,
+    "testsRegistered": 8,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 4,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "7b6b39d7-f846-41b2-9ba1-2c2b4be75edc",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33677448-4d2f-422b-9eb9-cdf01731b6cf",
+          "title": "restful-api.dev API Test",
+          "fullFile": "D:\\QA Engineer - Digital Skola\\Tugas\\qa_api_automation_ds\\test\\api_test.js",
+          "file": "\\test\\api_test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC1 - GET Single Object",
+              "fullTitle": "restful-api.dev API Test TC1 - GET Single Object",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const schema = readJsonSchema('get_single_object_schema.json');\nconst response = await supertest(baseURL)\n    .get(\"/objects/7\");\n// console.log(response.body);\nexpect(response.status).to.equal(200)\nexpect(response.body.id).to.equal(\"7\")\nexpect(response.body.data.year).to.equal(2019)\nexpect(response.body.data['CPU model']).to.contain(\"Intel\")\nexpect(response.body).to.be.jsonSchema(schema)",
+              "err": {},
+              "uuid": "3bd99104-bd48-42b7-b4ff-ee28804d0395",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "TC2 - POST Object",
+              "fullTitle": "restful-api.dev API Test TC2 - POST Object",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const body = {\n    \"name\": \"Apple MacBook Pro 16\",\n    \"data\": {\n        \"year\": 2019,\n        \"price\": 1849.99,\n        \"CPU model\": \"Intel Core i9\",\n        \"Hard disk size\": \"1 TB\"\n    }\n}\nconst response = await supertest(baseURL)\n    .post(\"/objects\")\n    .send(body);\n\ncreatedID = response.body.id",
+              "err": {},
+              "uuid": "93ce42c1-6cf5-40a6-ba2f-1c7bc27b4b3a",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "TC3 - DELETE Object",
+              "fullTitle": "restful-api.dev API Test TC3 - DELETE Object",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(createdID)\nconst response = await supertest(baseURL)\n    .delete(`/objects/${createdID}`);\nconsole.log(response.body);\n// expect(response.status).to.equal(200)\n// expect(response.body.id).to.equal(\"7\")\n// expect(response.body.data.year).to.equal(2019)\n// expect(response.body.data['CPU model']).to.contain(\"Intel\")",
+              "err": {},
+              "uuid": "9e41e6b6-0d50-4154-a4cb-9269408672a5",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "TC4 - GET Single Object With Invalid Id",
+              "fullTitle": "restful-api.dev API Test TC4 - GET Single Object With Invalid Id",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await supertest(baseURL)\n    .get(\"/objects/000000000000000\");\nconsole.log(response.body);\nexpect(response.status).to.equal(404);\nexpect(response.body.error).to.contain(\"000000000000000\");",
+              "err": {},
+              "uuid": "b66e4ed0-3af2-4f36-a1b3-1a9d6f561587",
+              "parentUUID": null,
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [
+            "3bd99104-bd48-42b7-b4ff-ee28804d0395",
+            "93ce42c1-6cf5-40a6-ba2f-1c7bc27b4b3a",
+            "9e41e6b6-0d50-4154-a4cb-9269408672a5",
+            "b66e4ed0-3af2-4f36-a1b3-1a9d6f561587"
+          ],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "953046a4-9341-4a28-a23f-71cd0413a4bc",
+          "title": "reqres.in API Test",
+          "fullFile": "D:\\QA Engineer - Digital Skola\\Tugas\\qa_api_automation_ds\\test\\api_test_reqrest.js",
+          "file": "\\test\\api_test_reqrest.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC1 - GET Single User",
+              "fullTitle": "reqres.in API Test TC1 - GET Single User",
+              "timedOut": false,
+              "duration": 277,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const schema = readJsonSchema('get_single_user_schema.json');\nconst response = await supertest(baseURL)\n    .get(\"/api/users/2\");\nconsole.log(response.body);\nexpect(response.status).to.equal(200)\nexpect(response.body.id).to.equal(createdID)\nexpect(response.body.data.first_name).to.equal(\"Janet\")\nexpect(response.body).to.be.jsonSchema(schema)",
+              "err": {},
+              "uuid": "c1f8700f-6a34-46cc-adb4-fd6c64de8103",
+              "parentUUID": "953046a4-9341-4a28-a23f-71cd0413a4bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC2 - POST Create User",
+              "fullTitle": "reqres.in API Test TC2 - POST Create User",
+              "timedOut": false,
+              "duration": 816,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const schema = readJsonSchema('post_create_user_schema.json');\nconst body = {\n    \"name\": \"morpheus\",\n    \"job\": \"leader\",\n    \"id\": \"718\",\n    \"createdAt\": \"2024-06-22T17:21:48.347Z\"\n}\nconst response = await supertest(baseURL)\n    .post(\"/api/users\")\n    .send(body);\n\ncreatedID = response.body.id\nconsole.log(response.body)\nexpect(response.status).to.equal(201)\nexpect(response.body.job).to.equal(\"leader\")\nexpect(response.body.id).to.equal(\"718\")\nexpect(response.body).to.be.jsonSchema(schema)",
+              "err": {},
+              "uuid": "7116c427-6a7e-4e20-9b1d-e3c7e73796fa",
+              "parentUUID": "953046a4-9341-4a28-a23f-71cd0413a4bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC3 - DELETE User",
+              "fullTitle": "reqres.in API Test TC3 - DELETE User",
+              "timedOut": false,
+              "duration": 827,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await supertest(baseURL)\n    .delete(\"/api/users/2\");\nconsole.log(response.body);\nexpect(response.status).to.equal(204)",
+              "err": {},
+              "uuid": "4c1eee73-8549-42e0-a915-7d0de5678e9b",
+              "parentUUID": "953046a4-9341-4a28-a23f-71cd0413a4bc",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC4 - PUT Update User",
+              "fullTitle": "reqres.in API Test TC4 - PUT Update User",
+              "timedOut": false,
+              "duration": 894,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const schema = readJsonSchema('put_update_user_schema.json');\nconst body = {\n    \"name\": \"morpheus\",\n    \"job\": \"zion resident\"\n}\nconst response = await supertest(baseURL)\n    .put(\"/api/users/2\")\n    .send(body);\n\ncreatedID = response.body.id\nconsole.log(response.body)\nexpect(response.status).to.equal(200)\nexpect(response.body.job).to.equal(\"zion resident\")\nexpect(response.body.id).to.equal(createdID)\nexpect(response.body).to.be.jsonSchema(schema)",
+              "err": {},
+              "uuid": "a5e64634-f2fc-4bf4-8d09-4006b9dc16a7",
+              "parentUUID": "953046a4-9341-4a28-a23f-71cd0413a4bc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "c1f8700f-6a34-46cc-adb4-fd6c64de8103",
+            "7116c427-6a7e-4e20-9b1d-e3c7e73796fa",
+            "4c1eee73-8549-42e0-a915-7d0de5678e9b",
+            "a5e64634-f2fc-4bf4-8d09-4006b9dc16a7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2814,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.4.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "report-DigtalSkola",
+        "reportFileName": "[status]_[datetime]-[name]-report",
+        "html": "true",
+        "json": "true",
+        "overwrit": "false",
+        "timestamp": "longDate"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
